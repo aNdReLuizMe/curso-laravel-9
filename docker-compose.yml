@@ -3,6 +3,7 @@ version: "3.7"
 services:
     # image project
     app:
+        container_name: curso-laravel-9
         build:
             context: .
             dockerfile: Dockerfile
@@ -33,9 +34,9 @@ services:
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: ${DB_DATABASE:-laravel}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
-            MYSQL_USER: ${DB_USERNAME:-username}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password} #root
+            MYSQL_PASSWORD: ${DB_PASSWORD:-password} #userpass
+            MYSQL_USER: ${DB_USERNAME:-user} #username
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
